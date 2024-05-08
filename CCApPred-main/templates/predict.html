@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCApPred</title>
+    <style>
+        body{
+            margin: 0px;
+<!--        background-image: url('static/Screenshot 2023-04-02 155027.png');-->
+<!--            background-repeat: no-repeat;-->
+<!--            background-size: cover;-->
+
+        }
+        a {
+                    background-color: white;
+                    color: black;
+                    padding: 14px 25px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+        }
+        a:hover{
+        color:lightblue;}
+        .header{
+            background: linear-gradient(to right,#00223fff,rgb(10, 81, 143),#00223fff);
+            border-style: solid;
+            text-align: center;
+            color: antiquewhite;
+        }
+        .body{
+            position:absolute;
+            height:632px;
+            width:100%;
+            background-repeat:no-repeat;
+            background-size:cover;
+            padding-left:40px;
+            margin-right:0px;
+            border-style:solid;
+            border-color:antiquewhite;
+            background-image: url('static/Screenshot 2023-04-02 155027.png');
+
+        }
+        .textcontent{
+            position:absolute;
+            padding-left:57px;
+            width:380px;
+            font-size:21px;
+            font-style:italic;
+        }
+        h2{
+
+        }
+        img{
+            width: 102px;
+            height: 35px;
+        }
+        .footer{
+
+        }
+        .team{
+            position:relative;
+            top:417px;
+            font-size:18px;
+        }
+        h4{
+            margin-top:0px;
+            margin-bottom:0px;
+            padding-left:30px;
+            text-decoration:underline;
+        }
+        /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Prediction Result</h1>
+    </div>
+    <div class="body">
+
+    <div class="back">
+        <h2>Dear User,</h2>
+    </div>
+    <div class="textcontent">
+
+        {{prediction_result}}
+        <div>
+        <button id="myBtn">Apply for Credit Card</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div>
+
+                <label>Have you taken any type of loan before (except education loan)?</label>
+        <div class="loan">
+                <a  href="https://www.hdfcbank.com/personal/pay/cards/credit-cards/paytm-hdfc-bank-credit-card">Yes</a>
+                <a  href="https://www.getonecard.app/" target="_blank">No</a>
+        </div>
+            </div>
+  </div>
+
+</div>
+     </div>
+
+    </div>
+    <div class="team">
+        <h4>Team</h4>
+        <div>
+            <img src="static/image_2023-04-02_023522253-removebg-preview.png" alt="">
+    </div>
+    <footer class="footer">
+        <h3>Thanks for visting our site.</h3>
+    </footer>
+    </div>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>    
+</html>

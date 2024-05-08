@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCapprovalprediction</title>
+    <style>
+        body{
+        background-image: url("static/istockphoto-1203763961-612x612.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        }
+        .header{
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-style: groove;
+            border-color: #adefd1ff;
+            border-radius: 15px;
+            }
+        .header h1{
+            color: #adefd1ff;
+        }
+        .form{
+            color: #adefd1ff;
+            border-style: solid;
+            padding-left: 15px;
+            border-radius: 15px;
+        }
+        
+        .name
+        input[type=text]
+        {
+            display: block;
+        }
+        input[type=radio]
+        {
+            padding: 0px;
+            margin: 0%;
+        }
+        input[type=number]{
+            width: 40px;
+        }
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+        #ms{
+            padding-left: 43px;
+        }
+        select{
+            width:fit-content; 
+        }
+        .buttons{
+            margin-top: 4%;
+        }
+        .buttons button{
+            color: #adefd1ff;
+            background-color: #00223fff;
+            margin-left: 4%;
+            margin-bottom: 4%;
+            border-style: groove;
+            border-color: #adefd1ff;
+        }
+        .buttons button:hover{
+            color: aliceblue;
+            border-color: burlywood
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Credit Card Approval Prediction</h1>
+    </div>
+    
+    <div class="form">
+        <form method="POST" action="/predict">
+            <div class="name">
+                <label for="fname">First Name</label>
+                    <input type="text" name="firstname" id="fname" required placeholder="First Name">
+                <label for="lname">Last Name</label>
+                    <input type="text" name="lastname" id="lname" required placeholder="Last Name">
+            </div>
+            <div>
+                <label style="padding-bottom: 0%;" >Gender</label>
+                <div class="gen">
+                    <input type="radio" name="gender" value="1" required id="male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" value="0" required id="female">
+                    <label for="female">Female</label>
+                </div>
+                <div>
+                    <label for="age">Age</label>
+                        <input type="number" name="age" id="age" required oninput="validity.valid||(value='');" min="0" max="60">
+                    <label id="ms" for="maritalstatus">Marital Status</label>
+                            <select name="maritalstatus" required id="maritalstatus">
+                                <option value="" selected disabled hidden>Select</option>
+                                <option value="0">Married</option>
+                                <option value="2">Unmarried</option>
+                                <option value="1">Divorced</option>
+                                <option value="3">Widow</option>
+                            </select>  
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label for="education">Education Level</label>
+                    <select name="education" required id="education">
+                        <option value="" selected disabled hidden>Select</option>
+                        <option value="1">Post Graduate</option>
+                        <option value="4">High Secondary/Diploma</option>
+                        <option value="2">Incomplete Graduation</option>
+                        <option value="3">Secondary or below</option>
+                        <option value="0">Under Graduate</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="incometype">Income Type</label>
+                    <select name="incometype" required id="incometype">
+                        <option value="" selected disabled hidden>Select</option>
+                        <option value="4">Working</option>
+                        <option value="0">Commerial Associate</option>
+                        <option value="1">Pensioner</option>
+                        <option value="2">State Servant</option>
+                        <option value="3">Student</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Occupation">Occupation</label>
+                    <select name="occupation" required id="Occupation" >
+                        <option value="" selected disabled hidden>Select</option>
+                        <option value="18">others</option>
+                        <option value="16">Security Staff</option>
+                        <option value="14">Sales Staff</option>
+                        <option value="0">Accountant</option>
+                        <option value="8">Skilled Labourr</option>
+                        <option value="10">Manager</option>
+                        <option value="4">Driver</option>
+                        <option value="3">Core Staff</option>
+                        <option value="6">Tech Staff</option>
+                        <option value="1">Cleaning Staff</option>
+                        <option value="12">Private Sevice Staff</option>
+                        <option value="2">Cooking</option>
+                        <option value="9">Unskilled Labour</option>
+                        <option value="11">Medicine Staff</option>
+                        <option value="15">Secretaries</option>
+                        <option value="17">Waiter</option>
+                        <option value="5">HR</option>
+                        <option value="13">Realty Agent</option>
+                        <option value="7">IT worker</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="yearsemployed">Years Employed</label>
+                    <input type="number"  min="0" name="employement" required id="yearsemployed" oninput="validity.valid||(value='');">
+                </div>
+                    <label for="annualincome">Annual Income(in lacs)</label>
+                <input type="number" min="0" name="income" required id="annualincome" oninput="validity.valid||(value='');" >
+            </div>
+            <div>
+                <label>Do you have your own property?</label>
+                <input type="radio" name="property" required value="1" id="pyes">
+                <label for="pyes">Yes</label>
+                <input type="radio" name="property" required value="0" id="pno">
+                <label for="pno">No</label>
+            </div>
+            <div>
+                <label for="housing type">Housing Type</label>
+                    <select name="housingtype" required id="housing type">
+                        <option value=""selected disabled hidden="">Select</option>
+                        <option value="4">Rented</option>
+                        <option value="1">Own House/Appartment</option>
+                        <option value="2">Municipal Appartment</option>
+                        <option value="5">Parental</option>
+                        <option value="0">Cooperative</option>
+                        <option value="3">Office Appartment</option>
+                    </select>
+            </div>
+            <div>
+
+                <label>Do you have car?</label>
+                <input type="radio" name="car" required value="1" id="cyes">
+                <label for="cyes">Yes</label>
+                <input type="radio" name="car" required value="0" id="cno">
+                <label for="cno">No</label>
+            </div>
+            <!-- <label for="mobile">Do you have mobile?</label>
+                <input type="radio" name="mobile" id="phyes">
+                <label for="phyes">Yes</label>
+                <input type="radio" name="mobile" id="phno">
+                <label for="phno">No</label> -->
+            <div>
+                <label for="creditscore">Cibil Score</label>
+                <input type="number" name="creditscore" required min="0" id="creditscore" placeholder="500">
+            </div>
+            <div class="buttons">
+                <button type="reset" value="Reset">Reset</button>
+                <button type="submit" value="Predict">Submit</button>
+            </div>
+        </form>
+        <div>
+            {{prediction_result}}
+        </div>
+    </div>
+</body>
+</html>
